@@ -13,10 +13,10 @@
    		select id,name,code from user
    	</select>
 </mapper>
-
 @Mapper
 @Repository
 public interface IUserMapper {
-
 	List<User> findAll();
 }
+	
+	github上添加的内容
