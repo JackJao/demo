@@ -29,7 +29,7 @@ public class FastJsonConvertConfig implements WebMvcConfigurer {
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //漂亮的格式，会处理null属性，返回结果不包含null属性
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat,SerializerFeature.WriteDateUseDateFormat);
         //处理中文乱码问题
         List<MediaType> fastMediaTypes = new ArrayList<>();
         MediaType html = new MediaType(MediaType.TEXT_HTML, Charset.defaultCharset());
