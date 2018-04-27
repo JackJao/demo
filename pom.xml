@@ -37,6 +37,12 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
+		<!--json支持-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.47</version>
+		</dependency>
 		<!-- spring mvc 支持 版本号在spring-boot-starter-parent 的pom中dependencyManagement(只是用于管理依赖，实际依赖使用dependencies)中已经管理了 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
