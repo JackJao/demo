@@ -32,7 +32,7 @@ public class Swagger2 {
 
         return new ApiInfoBuilder()
                 .title("Api标题-springboot利用swagger构建api文档")
-                .description("Api描述-简单优雅的restfun风格，更多参阅：https://blog.csdn.net/forezp/article/details/71023536||" +
+                .description("Api描述-简单优雅的restfun风格，更多配置参阅：https://blog.csdn.net/forezp/article/details/71023536||" +
                         "https://blog.csdn.net/catoop/article/details/50668896||" +
                         "https://www.jianshu.com/p/8553f315b2c8||" +
                         "https://www.jianshu.com/p/be05aa96fd29")
