@@ -38,7 +38,17 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
-
+		<!--Jedis 对 Redis 的支持-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<!--spring boot redis support-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
