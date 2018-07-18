@@ -1,5 +1,7 @@
 package com.jaon.demo.config;
 
+import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+import com.jaon.demo.domain.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -33,6 +35,8 @@ public class RedisConfig {
         //设置默认使用String的序列化储存key-value
         RedisSerializer<String> stringSerializer = new StringRedisSerializer();
         template.setDefaultSerializer(stringSerializer);
+        /*template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new FastJsonRedisSerializer<User>(User.class));*/
         return template;
     }
 
