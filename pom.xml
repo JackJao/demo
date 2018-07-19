@@ -38,6 +38,17 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<!-- activemq-core -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.7.0</version>
+		</dependency>
+
 		<!--Jedis 对 Redis 的支持-->
 		<dependency>
 			<groupId>redis.clients</groupId>
