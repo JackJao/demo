@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
  * @date 2018/7/19 15:53
  * 2.
  */
-/*@Component
+@Component
 public class PubSubListener2 {
-    @JmsListener(destination = "topic", containerFactory = "jmsTopicListenerCF")
+    @JmsListener(destination = "topic.msg.list", containerFactory = "jmsTopicListenerCF")
     public void receive(String msg){
         System.out.println("订阅者2 - " + msg);
     }
 
-}*/
+}

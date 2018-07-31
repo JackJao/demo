@@ -13,14 +13,14 @@ import javax.annotation.Resource;
  * 消息队列 单消费者/多消费者
  */
 @RestController
-@RequestMapping(value = "/ptp")
-public class PtpController {
+@RequestMapping(value = "/queues")
+public class QueuesController {
     @Resource
     private PtpProducer ptpProducer;
 
-    @RequestMapping(value = "/convertAndSend")
+    @RequestMapping(value = "/send")
     public Object convertAndSend(){
-        ptpProducer.convertAndSend();
+        ptpProducer.sendQueues();
         return "success";
     }
 

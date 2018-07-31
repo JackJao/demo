@@ -36,26 +36,6 @@ public class ActiveMQconfig {
     }
 
     /**
-     * 暂无用
-     * @return
-     */
-    @Bean
-    public ActiveMQQueue activeMQQueue(){
-        ActiveMQQueue queue = new ActiveMQQueue("demo.queue");
-        return queue;
-    }
-
-    /**
-     * 暂无用
-     * @return
-     */
-    @Bean
-    public ActiveMQTopic activeMQTopic(){
-        ActiveMQTopic queue = new ActiveMQTopic("demo.topic");
-        return queue;
-    }
-
-    /**
      * jmsTemplate
      * @param connectionFactory
      * @return
@@ -64,10 +44,10 @@ public class ActiveMQconfig {
     public JmsTemplate JmsTemplate(ConnectionFactory connectionFactory){
         JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
         //开启发布订阅功能，默认未开启,默认使用队列模式,使用主题模式后队列模式失效，2选1
-        //2.jmsTemplate.setPubSubDomain(true);
+        //2.
+        //jmsTemplate.setPubSubDomain(true);
         return jmsTemplate;
     }
-
 
     /**
      * JMS 队列的监听容器工厂
@@ -84,7 +64,12 @@ public class ActiveMQconfig {
         return factory;
     }
 
-    /*2.@Bean(name = "jmsTopicListenerCF")
+    /**
+     * 2.JMS主题的监听容器工厂
+     * @param connectionFactory
+     * @return
+     */
+    @Bean(name = "jmsTopicListenerCF")
     public DefaultJmsListenerContainerFactory jmsTopicListenerContainerFactory(ConnectionFactory connectionFactory) {
         DefaultJmsListenerContainerFactory factory =
                 new DefaultJmsListenerContainerFactory();
@@ -94,5 +79,5 @@ public class ActiveMQconfig {
         //使其支持发布订阅功能
         factory.setPubSubDomain(true);
         return factory;
-    }*/
+    }
 }

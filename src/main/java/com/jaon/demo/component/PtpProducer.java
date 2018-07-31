@@ -16,17 +16,17 @@ public class PtpProducer {
     private JmsTemplate jmsTemplate;
 
     /**
-     * 发送消息自动转换成原始消息
+     * 1.消息队列
      */
-    public void convertAndSend(){
-        jmsTemplate.convertAndSend("ptp", "我是自动转换的消息");
+    public void sendQueues(){
+        jmsTemplate.convertAndSend("queues.msg.list", "队列消息列表");
     }
 
 
     /**
-     * 2.
+     * 2.主题/订阅
      */
-    public void convertAndSend2(){
-       // jmsTemplate.convertAndSend("topic", "我是自动转换的消息topic");
+    public void sendTopic(){
+        jmsTemplate.convertAndSend("topic.msg.list", "主题消息列表");
     }
 }

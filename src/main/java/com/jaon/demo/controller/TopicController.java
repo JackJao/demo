@@ -12,15 +12,15 @@ import javax.annotation.Resource;
  * 2.主题/订阅,发布订阅模式
  */
 @RestController
-@RequestMapping(value = "/pubsub")
-public class PubSubController {
+@RequestMapping(value = "/topic")
+public class TopicController {
     @Resource
     private PtpProducer ptpProducer;
 
 
-    @RequestMapping(value = "/convertAndSend")
+    @RequestMapping(value = "/send")
     public String convertAndSend(){
-        ptpProducer.convertAndSend2();
+        ptpProducer.sendTopic();
         return "success";
     }
 }

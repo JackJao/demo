@@ -30,10 +30,10 @@ public class JmsTest {
      */
     @Test
     public void test1(){
-        jmsTemplate.send("demo2.queue", new MessageCreator() {
+        jmsTemplate.send("消息队列-1", new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                return session.createTextMessage("原始消息");
+                return session.createTextMessage("原始方式发送消息-消息队列1-我是消息内容");
             }
         });
     }
@@ -43,8 +43,8 @@ public class JmsTest {
      */
     @Test
     public void test2() throws JMSException {
-        Message receive = jmsTemplate.receive("demo2.queue");
-        System.out.println(((TextMessage)receive).getText());
+        Message receive = jmsTemplate.receive("消息队列-1");
+        System.out.println("获取，消息队列-1，的消息内容：【"+((TextMessage)receive).getText()+"】");
     }
 
     /**
@@ -52,7 +52,7 @@ public class JmsTest {
      */
     @Test
     public void test3(){
-        jmsTemplate.convertAndSend("queue1","队列消息1");
+        jmsTemplate.convertAndSend("优化-消息队列-1","优化-消息队列-1-我是消息内容");
     }
 
     /**
@@ -60,7 +60,7 @@ public class JmsTest {
      */
     @Test
     public void test4(){
-        Object queue1 = jmsTemplate.receiveAndConvert("queue1");
-        System.out.println(queue1);
+        Object queue1 = jmsTemplate.receiveAndConvert("优化-消息队列-1");
+        System.out.println("获取，优化-消息队列-1，的消息内容【"+queue1+"】");
     }
 }
