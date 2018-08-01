@@ -46,6 +46,19 @@ public class ActiveMQconfig {
         //开启发布订阅功能，默认未开启,默认使用队列模式,使用主题模式后队列模式失效，2选1
         //2.
         //jmsTemplate.setPubSubDomain(true);
+        /**
+         * 消息的递送模式
+         在发送消息给时，可以告知这是持久化的消息，还是非持久化的消息。如果是非持久化的消息，broker会将消息保留在内存，否则就会持久化到磁盘。非持久化：高吞吐，易丢失；持久化：低吞吐，不易丢失。
+         相关的API：
+         Class org.springframework.jms.core.JmsTemplate
+         public void setDeliveryMode(int deliveryMode)
+         设置是否持久化要发送的消息：1-非持久化；2-持久化
+         public int getDeliveryMode()
+         获取持久化模式的设置：1-非持久化；2-持久化
+         public void setDeliveryPersistent(boolean deliveryPersistent)
+         设置是否持久化要发送的消息，true-持久化；false-非持久化
+         */
+
         return jmsTemplate;
     }
 
