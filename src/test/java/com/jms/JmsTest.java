@@ -39,7 +39,7 @@ public class JmsTest {
     }
 
     /**
-     * 接受消息
+     * 接受消息,同步的，需要等待消息存在并接受完成
      */
     @Test
     public void test2() throws JMSException {
@@ -56,7 +56,7 @@ public class JmsTest {
     }
 
     /**
-     * 优化接受
+     * 优化接受,同步的，需要等待消息存在并接受完成
      */
     @Test
     public void test4(){
