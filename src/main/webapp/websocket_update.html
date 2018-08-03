@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>websocket_update.html</title>
+    <script src="https://cdn.bootcss.com/web-socket-js/1.0.0/web_socket.min.js"></script>
+
+</head>
+<body>
+<h3>连接到“marco” WebSocket的JavaScript客户端,添加备用方案socket js</h3>
+<div id="preId">
+
+</div>
+</body>
+<script>
+var url = 'marco';
+//打开websocket
+var sock = new SocketJS(url);
+//处理连接开启事件
+sock.onopen= function() {
+    console.log('打开中...');
+    sayMarco();
+};
+//处理信息
+sock.onmessage = function (e) {
+    console.log('接受到的消息：',e.data);
+    var para=document.createElement("p");
+    var node=document.createTextNode(e.data);
+    para.appendChild(node);
+
+    var element=document.getElementById("preId");
+    element.appendChild(para);
+    setTimeout(function () {
+        sayMarco();
+    },3000);
+};
+//处理连接关闭
+sock.onclose = function () {
+    console.log('关闭中....');
+};
+function sayMarco() {
+    console.log('发送消息"Marco!"');
+    sock.send('Marco!');
+};
+
+    </script>
+</html>
