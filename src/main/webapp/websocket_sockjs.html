@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>websocket.html</title>
+    <!-- 添加SockJS支持-->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script>
-        var url = 'ws://'+window.location.host+'/websocket/marco';
+        // SockJS会自动加上前缀"http://ip:port/"
+        var url = 'websocket/marco';
         //打开websocket
-        var sock = new WebSocket(url);
+        var sock = new SockJS(url);
         //处理连接开启事件
         sock.onopen= function() {
           console.log('打开中...');
@@ -19,7 +22,7 @@
             var node=document.createTextNode(e.data);
             para.appendChild(node);
 
-            var element=document.getElementById("preId");
+            var element=document.getElementById("preIdSockJS");
             element.appendChild(para);
             setTimeout(function () {
                 sayMarco();
@@ -37,9 +40,8 @@
     </script>
 </head>
 <body>
-<h3>连接到“marco” WebSocket的JavaScript客户端</h3>
-<a href="websocket_sockjs.html">升级</a>
-<div id="preId">
+<h3>连接到“marco” WebSocket的JavaScript客户端 SockJS 版</h3>
+<div id="preIdSockJS">
 
 </div>
 </body>
