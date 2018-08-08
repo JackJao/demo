@@ -29,7 +29,7 @@ public class Swagger2 {
                 .build();
     }
     private ApiInfo apiInfo() {
-
+        //其余身份认证：https://www.cnblogs.com/exmyth/p/7183753.html
         return new ApiInfoBuilder()
                 .title("Api标题-springboot利用swagger构建api文档")
                 .description("Api描述-简单优雅的restfun风格，更多配置参阅：https://blog.csdn.net/forezp/article/details/71023536||" +
