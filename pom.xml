@@ -38,10 +38,12 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
+		<!--websocket-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
+		<!-- 开启消息队列支持,注解支持-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-activemq</artifactId>
