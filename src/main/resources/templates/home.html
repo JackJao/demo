@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>联系人</title>
+    <link rel="stylesheet" th:href="@{/public/style.css}"/>
+</head>
+<body>
+<h2>thymeleaf 联系人</h2>
+<form method="post">
+    <label for="name">姓名</label>
+    <input id="name" type="text" name="name"/><br/>
+    <label for="code">CODE</label>
+    <input id="code" type="text" name="code"/><br/>
+    <input type="submit" value="提交"/>
+</form>
+<ul th:each="contact : ${contacts}" >
+ <li>
+     <span th:text="${contact.name}">姓名</span>:
+     <span th:text="${contact.code}">CODE</span>
+ </li>
+</ul>
+</body>
+</html>
