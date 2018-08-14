@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jaon.demo.mapper.IUserMapper">
 	<select id="findAll" resultType="User">
-		select id,name,code,birthday,createrTime from user
+		select id,username,`password`,enabled,locked,birthday,createrTime from user
 	</select>
+	<select id="selectUserByName" resultType="User" parameterType="string">
+		select id,username,`password`,enabled,locked,birthday,createrTime from user where username = #{name} limit 1
+	</select>
+	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyColumn="id">
+		insert into user (username,`password`,enabled,locked,birthday,createrTime) VALUES (#{username},#{password},#{enabled},#{locked},#{birthday},#{createrTime})
+	</insert>
 </mapper>

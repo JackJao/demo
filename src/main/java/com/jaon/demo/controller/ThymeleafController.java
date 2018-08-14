@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -30,5 +31,12 @@ public class ThymeleafController {
 		List<User> all = userService.getAll();
 		model.put("contacts",all);
 		return "home";
+	}
+
+	@PostMapping("/save")
+	@ApiOperation(value = "保存新用户",notes = "保存用户后，获取所有用户信息")
+	public String save(User user){
+		int ret = userService.saveUser(user);
+		return "redirect:/thymeleaf/getAll";
 	}
 }

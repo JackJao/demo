@@ -74,8 +74,8 @@ public class RedisTest {
     public void test4(){
         User u = new User();
         u.setId(1L);
-        u.setCode(10010);
-        u.setName("联通");
+        u.setPassword("10010");
+        u.setUsername("联通");
         u.setBirthday(new Date());
         u.setCreaterTime(new Date());
         /*redisTemplate.setKeySerializer(new StringRedisSerializer());

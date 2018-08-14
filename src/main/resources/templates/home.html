@@ -6,18 +6,24 @@
     <link rel="stylesheet" th:href="@{/public/style.css}"/>
 </head>
 <body>
-<h2>thymeleaf 联系人</h2>
-<form method="post">
+<h2>用户列表</h2>
+<form method="post" th:action="@{/thymeleaf/save}" >
     <label for="name">姓名</label>
-    <input id="name" type="text" name="name"/><br/>
-    <label for="code">CODE</label>
-    <input id="code" type="text" name="code"/><br/>
+    <input id="name" type="text" name="username"/><br/>
+    <label for="code">密码</label>
+    <input id="code" type="text" name="password"/><br/>
+    <label for="date">生日</label>
+    <input id="date" type="date" name="birthday"/><br/>
     <input type="submit" value="提交"/>
 </form>
 <ul th:each="contact : ${contacts}" >
  <li>
-     <span th:text="${contact.name}">姓名</span>:
-     <span th:text="${contact.code}">CODE</span>
+     <span th:text="${contact.username}">姓名</span>|
+     <span th:text="${contact.password}">密码</span>|
+     <span th:text="${contact.enabled}">可用</span>|
+     <span th:text="${contact.locked}">锁定</span>|
+     <span th:text="${#dates.format(contact.birthday,'yyyy-MM-dd')}">生日</span>|
+     <span th:text="${#dates.format(contact.createrTime,'yyyy-MM-dd HH:mm:ss')}">创建时间</span>
  </li>
 </ul>
 </body>

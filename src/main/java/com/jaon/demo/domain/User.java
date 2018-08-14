@@ -1,9 +1,6 @@
 package com.jaon.demo.domain;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,33 +19,46 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -5825896777778390022L;
 
 	private Long id;
-	private String name;
-	private Integer code;
+	private String username;
+	private String password;
+	private boolean enabled = true;
+	private boolean locked = true;
 	private Date birthday;
-	private Date createrTime;
+	private Date createrTime = new Date();
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public Integer getCode() {
-		return code;
+	public String getPassword() {
+		return password;
 	}
-	public void setCode(Integer code) {
-		this.code = code;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public boolean isLocked() {
+		return locked;
+	}
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
 	public Date getBirthday() {
 		return birthday;
 	}
-
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
@@ -61,16 +71,25 @@ public class User implements Serializable{
 		this.createrTime = createrTime;
 	}
 
-	public User(String name, Integer code) {
+	public User(String username, String password) {
 		super();
-		this.name = name;
-		this.code = code;
+		this.username = username;
+		this.password = password;
 	}
 	public User() {
 		super();
 	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", code=" + code + "]";
+		return "User{" +
+				"id=" + id +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", enabled=" + enabled +
+				", locked=" + locked +
+				", birthday=" + birthday +
+				", createrTime=" + createrTime +
+				'}';
 	}
 }

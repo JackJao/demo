@@ -1,8 +1,11 @@
 package com.jaon.demo.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author Gao
@@ -19,5 +22,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests().anyRequest().authenticated().and().formLogin();
         //通过spring security 的对话框登录
         //http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+    }
+
+    /**
+     * 提供密码明文密码校验bean
+     * @return
+     */
+    /*@Bean
+    public PasswordEncoder passwordEncoder() {
+        return new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return new String(rawPassword.toString());
+            }
+
+            @Override
+            public boolean matches(CharSequence rawPassword, String encodedPassword) {
+                return rawPassword.toString().equals(encodedPassword);
+            }
+        };
+    }*/
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

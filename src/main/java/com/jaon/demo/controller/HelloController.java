@@ -24,8 +24,8 @@ public class HelloController {
 	public User getUser() {
 		User u = new User();
 		u.setId(1L);
-		u.setCode(28);
-		u.setName("admin");
+		u.setPassword("132456");
+		u.setUsername("admin");
 		return u;
 	}
 	
