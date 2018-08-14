@@ -38,6 +38,16 @@
 		<version>2.0.1.RELEASE</version>
 	</parent>
 	<dependencies>
+		<!-- 加入依赖后，访问需要用户登录：默认用户user，密码，启动的时候会输出-->
+		<!-- 如：
+		Using generated security password: 3eb7634f-ec43-42aa-b83d-9193d0f52c0d
+		ps:默认拦截所有的请求,需要通过验证才能访问
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<!-- spring boot 对thymeleaf支持,thymeleaf依赖 thymeleaf-springX,这里自动引入了thymeleaf-spring5-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
