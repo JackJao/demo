@@ -32,6 +32,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<mysql.version>6.0.6</mysql.version>
+		<druid.version>1.1.9</druid.version>
+		<mybatis.version>1.3.2</mybatis.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<swagger.version>2.6.1</swagger.version>
+		<jedis.version>2.9.0</jedis.version>
+		<activemq-core.version>5.7.0</activemq-core.version>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -68,13 +75,13 @@
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-core</artifactId>
-			<version>5.7.0</version>
+			<version>${activemq-core.version}</version>
 		</dependency>
 		<!--Jedis 对 Redis 的支持 依赖-->
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
-			<version>2.9.0</version>
+			<version>${jedis.version}</version>
 		</dependency>
 		<!-- api 地址 http://localhost:8080/swagger-ui.html-->
 		<!--spring boot redis support-->
@@ -86,19 +93,19 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.6.1</version>
+			<version>${swagger.version}</version>
 		</dependency>
 		<!--swagger2 ui 支持-->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.1</version>
+			<version>${swagger.version}</version>
 		</dependency>
 		<!--json支持-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.47</version>
+			<version>${fastjson.version}</version>
 		</dependency>
 		<!-- spring mvc 支持 版本号在spring-boot-starter-parent 的pom中dependencyManagement(只是用于管理依赖，实际依赖使用dependencies)中已经管理了 -->
 		<dependency>
@@ -109,7 +116,7 @@
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>1.3.2</version>
+			<version>${mybatis.version}</version>
 		</dependency>
 		<!-- spring boot 测试支持 -->
 		<dependency>
@@ -122,7 +129,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.1.9</version>
+			<version>${druid.version}</version>
 		</dependency>
 		<!-- spring boot 中默认使用的是5.1.46的版本，现在使用自己的版本6.0.6(驱动:com.mysql.cj.jdbc.Driver，连接加时区参数:serverTimezone=GMT) -->
 		<dependency>
@@ -138,7 +145,7 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>6.0.6</version>
+				<version>${mysql.version}</version>
 			</dependency>
 		</dependencies>
 		
