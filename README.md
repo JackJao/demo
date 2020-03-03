@@ -26,4 +26,7 @@ public interface IUserMapper {
 	
 #####ps:github上添加的内容
 
-项目使用了jms，需要外部安装程序
+*1.项目使用了jms，需要外部安装程序
+*2.增加了多环境配置
+*3.集成了javamelody
+*ps:由于集成了spring security,访问资源被限制了，需要登录后操作

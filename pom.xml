@@ -39,6 +39,11 @@
 		<swagger.version>2.6.1</swagger.version>
 		<jedis.version>2.9.0</jedis.version>
 		<activemq-core.version>5.7.0</activemq-core.version>
+		<javamelody.version>1.81.0</javamelody.version>
+		<itext.version>2.1.7</itext.version>
+		<xstream.version>1.4.10</xstream.version>
+		<jrobin.version>1.5.9</jrobin.version>
+		<alipay-sdk-java.version>4.9.28.ALL</alipay-sdk-java.version>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -136,6 +141,52 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<!--支付宝h5支付-->
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+			<version>${alipay-sdk-java.version}</version>
+		</dependency>
+		<!--javamelody start-->
+		<!--javamelody，springboot插件-->
+		<dependency>
+			<groupId>net.bull.javamelody</groupId>
+			<artifactId>javamelody-spring-boot-starter</artifactId>
+			<version>${javamelody.version}</version>
+		</dependency>
+		<!-- itext,增加pdf导出选项功能 -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>${itext.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>bcmail-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>bcprov-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>bctsp-jdk14</artifactId>
+					<groupId>bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--The dependencies jrobin (included in javamelody-core) and
+		if you wish xstream as an option for the xml and json export are:-->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jrobin</groupId>
+			<artifactId>jrobin</artifactId>
+			<version>${jrobin.version}</version>
+		</dependency>
+		<!--javamelody end  -->
 
 	</dependencies>
 	<!-- 依赖管理 -->
