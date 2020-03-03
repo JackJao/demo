@@ -41,7 +41,7 @@
 		<activemq-core.version>5.7.0</activemq-core.version>
 		<javamelody.version>1.81.0</javamelody.version>
 		<itext.version>2.1.7</itext.version>
-		<xstream.version>1.4.10</xstream.version>
+		<xstream.version>1.4.11</xstream.version>
 		<jrobin.version>1.5.9</jrobin.version>
 		<alipay-sdk-java.version>4.9.28.ALL</alipay-sdk-java.version>
 	</properties>
