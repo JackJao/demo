@@ -6,6 +6,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * @author Administrator
+ * 打包war包时候需要注释@SpringBootApplication
  */
 @SpringBootApplication
 public class App {

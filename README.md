@@ -25,3 +25,5 @@ public interface IUserMapper {
 ```
 	
 #####ps:github上添加的内容
+
+项目使用了jms，需要外部安装程序
