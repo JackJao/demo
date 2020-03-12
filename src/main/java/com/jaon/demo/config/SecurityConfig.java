@@ -21,11 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         //通过spring security 的表单登录
         http.authorizeRequests().anyRequest().authenticated().and().formLogin();
         //通过spring security 的对话框登录
-        //http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+//        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
     }
 
     /**
-     * 提供密码明文密码校验bean
+     * 登录用户使用明文密码校验，登录是否成功
      * @return
      */
     /*@Bean
@@ -43,6 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         };
     }*/
 
+    /**
+     * 登录用户使用加密后的密码校验，登录是否成功
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
