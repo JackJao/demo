@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @author Administrator
  * 打包成jar包的时候需要注释@SpringBootApplication
  */
-//@SpringBootApplication
+@SpringBootApplication
 public class AppTomcat extends SpringBootServletInitializer {
 
 	@Override
