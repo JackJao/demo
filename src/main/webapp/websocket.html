@@ -14,6 +14,7 @@
         };
         //处理信息
         sock.onmessage = function (e) {
+            console.dir(e);
             console.log('接受到的消息：',e.data);
             var para=document.createElement("p");
             var node=document.createTextNode(e.data);
@@ -34,13 +35,47 @@
           sock.send('Marco!');
         };
 
+        //=========================================================
+        /*var url2 = 'ws://'+window.location.host+'/websocket/marco2';
+        //打开websocket
+        var sock2 = new WebSocket(url2);
+        //处理连接开启事件
+        sock2.onopen= function() {
+            console.log('打开中2...');
+            sayMarco2();
+        };
+        //处理信息
+        sock2.onmessage = function (e) {
+            console.dir(e);
+            console.log('接受到的消息2：',e.data);
+            var para=document.createElement("p");
+            var node=document.createTextNode(e.data);
+            para.appendChild(node);
+
+            var element=document.getElementById("preId2");
+            element.appendChild(para);
+            setTimeout(function () {
+                sayMarco2();
+            },3000);
+        };
+        //处理连接关闭
+        sock2.onclose = function () {
+            console.log('关闭中2....');
+        };
+        function sayMarco2() {
+            console.log('发送消息"Marco2!"');
+            sock.send('Marco2!');
+        };*/
     </script>
 </head>
 <body>
 <h3>连接到“marco” WebSocket的JavaScript客户端</h3>
 <a href="websocket_sockjs.html">升级</a>
 <div id="preId">
-
+内容1
+</div>
+<div id="preId2" style="float: right">
+内容2
 </div>
 </body>
 </html>

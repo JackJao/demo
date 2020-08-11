@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>websocket.html</title>
+    <script>
+        var socket = [];
+        var url = 'ws://'+window.location.host+'/websocket/marco';
+        var url2 = 'ws://'+window.location.host+'/websocket/marco2';
+        function initWebSocket(keyString,url,message){
+            if('WebSocket' in window){
+                socket[keyString] = new WebSocket(url);
+                //处理连接开启事件
+                socket[keyString].onopen= function(e) {
+                    console.log('WebSocket已连接...');
+                    console.dir("连接--e",e);
+                    sayMarco(socket[keyString],message);
+                };
+                //处理信息
+                socket[keyString].onmessage = function (e) {
+                    console.log('接受到的消息：',e.data);
+                    console.dir("收到--e",e);
+                    var para=document.createElement("li");
+                    var node=document.createTextNode(e.data);
+                    para.appendChild(node);
+                    var element=document.getElementById(keyString);
+                    element.appendChild(para);
+                    setTimeout(function () {
+                        sayMarco(socket[keyString],message);
+                    },3000);
+                };
+                //处理连接关闭
+                socket[keyString].onclose = function (e) {
+                    console.log('WebSocket已关闭....');
+                    console.dir("关闭--e",e);
+                };
+                socket[keyString].onerror =function (msg) {
+                    console.log('WebSocket出错误....');
+                    console.dir("错误--e",e);
+                }
+            }else{
+                alert("您的浏览器不支持WebSocket！");
+            }
+        }
+        function sayMarco(webSocketObject,message) {
+            console.log('发送消息"Marco!",'+message);
+            webSocketObject.send('Marco!,'+message);
+        }
+
+        initWebSocket("sock1",url,"hello");
+        initWebSocket("sock2",url2,"hi");
+    </script>
+</head>
+<body>
+<h3>测试WebSocket多连接</h3>
+    <div >
+        <label>第一个WebSocket连接收到的数据</label>
+        <ol id="sock1">
+        </ol>
+        <label>第二个WebSocket连接收到的数据</label>
+        <ol id="sock2">
+        </ol>
+    </div>
+
+
+</body>
+</html>
