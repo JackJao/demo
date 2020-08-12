@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>websocket.html</title>
+    <!-- 添加SockJS支持-->
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script>
+        // SockJS会自动加上前缀"http://ip:port/"
         var socket = [];
-        var url = 'ws://'+window.location.host+'/websocket/marco';
-        var url2 = 'ws://'+window.location.host+'/websocket/marco2';
+        var url = 'websocket/marco';
+        var url2 = 'websocket/marco2';
         function initWebSocket(keyString,url,message){
-            if('WebSocket' in window){
-                socket[keyString] = new WebSocket(url);
+                socket[keyString] = new SockJS(url);
                 //处理连接开启事件
                 socket[keyString].onopen= function(e) {
                     console.log('WebSocket已连接...');
@@ -38,9 +40,6 @@
                     console.log('WebSocket出错误....');
                     console.log("错误--e",e);
                 }
-            }else{
-                alert("您的浏览器不支持WebSocket！");
-            }
         }
         function sayMarco(webSocketObject,message) {
             console.log('发送消息"Marco!",'+message);
@@ -52,16 +51,15 @@
     </script>
 </head>
 <body>
+<h3>SockJS 版</h3>
 <h3>测试WebSocket多连接</h3>
-    <div >
-        <label>第一个WebSocket连接收到的数据</label>
-        <ol id="sock1">
-        </ol>
-        <label>第二个WebSocket连接收到的数据</label>
-        <ol id="sock2">
-        </ol>
-    </div>
-
-
+<div >
+    <label>第一个WebSocket连接收到的数据</label>
+    <ol id="sock1">
+    </ol>
+    <label>第二个WebSocket连接收到的数据</label>
+    <ol id="sock2">
+    </ol>
+</div>
 </body>
 </html>
