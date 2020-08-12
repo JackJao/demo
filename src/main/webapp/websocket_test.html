@@ -36,7 +36,7 @@
                 };
                 socket[keyString].onerror =function (msg) {
                     console.log('WebSocket出错误....');
-                    console.dir("错误--e",e);
+                    console.dir("错误--e",msg);
                 }
             }else{
                 alert("您的浏览器不支持WebSocket！");
