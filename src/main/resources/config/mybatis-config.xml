@@ -44,10 +44,10 @@
 		<!-- 指定 MyBatis 所用日志的具体实现，未指定时将自动查找。SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING 默认	Not set -->
 		<!-- <setting name="logImpl" value="LOG4J"/> -->
 	</settings>
-	<typeAliases>
-		<!-- 指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean ,不用一个个配置别名了-->
-		<package name="com.yangtao.springDemo.domain"/>
-	</typeAliases>
+	<!--<typeAliases>
+		&lt;!&ndash; 指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean ,不用一个个配置别名了&ndash;&gt;
+		<package name="com.jaon.demo.domain"/>
+	</typeAliases>-->
 
 	<!-- <plugins> -->
 		<!-- com.github.pagehelper为PageHelper类所在包名 -->
