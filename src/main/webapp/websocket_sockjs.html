@@ -19,7 +19,7 @@
         sock.onmessage = function (e) {
             console.log('接受到的消息：',e.data);
             var para=document.createElement("p");
-            var node=document.createTextNode(e.data);
+            var node=document.createTextNode("收到的消息："+e.data);
             para.appendChild(node);
 
             var element=document.getElementById("preIdSockJS");
@@ -34,18 +34,27 @@
         };
         function sayMarco() {
           console.log('发送消息"Marco!"');
+            var para=document.createElement("p");
+            var node=document.createTextNode('发送的消息：Marco!');
+            para.appendChild(node);
+
+            var element=document.getElementById("preIdSockJS");
+            element.appendChild(para);
           sock.send('Marco!');
         };
 
     </script>
 </head>
 <body>
-<h3>连接到“marco” WebSocket的JavaScript客户端 SockJS 版</h3>
+<h3>SockJS-WebSocket-1个连接</h3>
 <a href="websocket.html">原生H5，WebSocket消息收发-1个连接</a>
+<br>
 <br>
 <a href="websocket_test.html">原生H5，WebSocket消息收发-多个连接</a>
 <br>
+<br>
 <a href="websocket_sockjs.html">SockJS，WebSocket消息收发-1个连接</a>
+<br>
 <br>
 <a href="websocket_sockjs_test.html">SockJS，WebSocket消息收发-多个连接</a>
 <div id="preIdSockJS">
