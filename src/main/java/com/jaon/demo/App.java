@@ -6,9 +6,11 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * @author Administrator
- * 打包war包时候需要注释@SpringBootApplication
+ * 1.打包成jar包时候需要：注释AppTomcat中@SpringBootApplication
+ * 2.因为启动入口只有一个，所以启动类只能有一个被@SpringBootApplication注解
+ * 3.修改pom配置：<packaging>jar</packaging>
  */
-@SpringBootApplication
+//@SpringBootApplication
 public class App {
 
 	public static void main(String[] args) {
