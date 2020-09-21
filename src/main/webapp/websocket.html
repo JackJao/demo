@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>websocket.html</title>
+<title>原生H5-WebSocket-1个连接</title>
     <script>
-        var context = '/demo';
+//        var context = '/demo';
+        var context = '';
         var url = 'ws://'+window.location.host+context+'/websocket/marco';
         //打开websocket
         var sock = new WebSocket(url);
@@ -71,7 +72,13 @@
 </head>
 <body>
 <h3>连接到“marco” WebSocket的JavaScript客户端</h3>
-<a href="websocket_sockjs.html">升级</a>
+<a href="websocket.html">原生H5，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_test.html">原生H5，WebSocket消息收发-多个连接</a>
+<br>
+<a href="websocket_sockjs.html">SockJS，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_sockjs_test.html">SockJS，WebSocket消息收发-多个连接</a>
 <div id="preId">
 内容1
 </div>

@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>websocket.html</title>
-    <!-- 添加SockJS支持-->
+<title>SockJS-WebSocket-1个连接</title>
+    <!-- 添加SockJS支持，sockjs 在浏览器不支持websocket的时候会自动切换成轮询方式-->
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script>
         // SockJS会自动加上前缀"http://ip:port/context/"
@@ -41,6 +41,13 @@
 </head>
 <body>
 <h3>连接到“marco” WebSocket的JavaScript客户端 SockJS 版</h3>
+<a href="websocket.html">原生H5，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_test.html">原生H5，WebSocket消息收发-多个连接</a>
+<br>
+<a href="websocket_sockjs.html">SockJS，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_sockjs_test.html">SockJS，WebSocket消息收发-多个连接</a>
 <div id="preIdSockJS">
 
 </div>

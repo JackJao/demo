@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>websocket.html</title>
+<title>原生H5-WebSocket-多个连接</title>
     <script>
         var socket = [];
-        var context = '/demo';
+//        var context = '/demo';
+        var context = '';
         var url = 'ws://'+window.location.host+context+'/websocket/marco';
         var url2 = 'ws://'+window.location.host+context+'/websocket/marco2';
         function initWebSocket(keyString,url,message){
@@ -54,6 +55,13 @@
 </head>
 <body>
 <h3>测试WebSocket多连接</h3>
+<a href="websocket.html">原生H5，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_test.html">原生H5，WebSocket消息收发-多个连接</a>
+<br>
+<a href="websocket_sockjs.html">SockJS，WebSocket消息收发-1个连接</a>
+<br>
+<a href="websocket_sockjs_test.html">SockJS，WebSocket消息收发-多个连接</a>
     <div >
         <label>第一个WebSocket连接收到的数据</label>
         <ol id="sock1">
