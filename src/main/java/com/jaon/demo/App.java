@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * 2.因为启动入口只有一个，所以启动类只能有一个被@SpringBootApplication注解
  * 3.修改pom配置：<packaging>jar</packaging>
  */
-//@SpringBootApplication
+@SpringBootApplication
 public class App {
 
 	public static void main(String[] args) {
