@@ -5,8 +5,9 @@
 <title>websocket.html</title>
     <script>
         var socket = [];
-        var url = 'ws://'+window.location.host+'/websocket/marco';
-        var url2 = 'ws://'+window.location.host+'/websocket/marco2';
+        var context = '/demo';
+        var url = 'ws://'+window.location.host+context+'/websocket/marco';
+        var url2 = 'ws://'+window.location.host+context+'/websocket/marco2';
         function initWebSocket(keyString,url,message){
             if('WebSocket' in window){
                 socket[keyString] = new WebSocket(url);

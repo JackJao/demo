@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <title>websocket.html</title>
     <script>
-        var url = 'ws://'+window.location.host+'/websocket/marco';
+        var context = '/demo';
+        var url = 'ws://'+window.location.host+context+'/websocket/marco';
         //打开websocket
         var sock = new WebSocket(url);
         //处理连接开启事件
