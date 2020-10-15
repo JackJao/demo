@@ -14,7 +14,7 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--
      用来定义变量值的标签，<property> 有两个属性，name和value；其中name的值是变量的名称，value的值时变量定义的值。通过<property>定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。
      -->
-    <property name="LOG_HOME" value="F:/demo" />
+    <property name="LOG_HOME" value="logs" />
 
     <!--  ====================可选配置start============== -->
     <!-- 彩色日志 -->
@@ -23,22 +23,36 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
     <!-- 控制台彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-    <!-- 文件输出日志格式 -->
+    <!-- 文件输出日志格式，信息丰富 -->
     <property name="FILE_LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     <!--  ====================可选配置end============== -->
-    <!-- 简洁模版-->
+    <!-- 简洁模版,经典格式-->
     <property name="TEMPLATE_LOG_PATTERN" value="[ %-5level] [%date{yyyy-MM-dd HH:mm:ss}] %logger{96} [%line]  : %msg%n"/>
 
 
     <!--
     appender用来格式化日志输出节点，有俩个属性name和class，class用来指定哪种输出策略，常用就是控制台输出策略和文件输出策略。
     -->
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
+        </encoder>
+        <!-- Only log level WARN and above -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
     <!-- 简单文件输出 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
         <encoder>
-            <!--<pattern>${FILE_LOG_PATTERN}</pattern>-->
-            <!--经典格式-->
+            <!-- 文件输出日志格式,信息丰富 -->
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <!--简洁模版,经典格式-->
             <pattern>${TEMPLATE_LOG_PATTERN}</pattern>
             <charset>UTF-8</charset> <!-- 此处设置字符集 -->
         </encoder>
@@ -59,30 +73,20 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
         <prudent>true</prudent>
     </appender>
 
-    <!-- 控制台输出 -->
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
-            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
-        </encoder>
-        <!-- Only log level WARN and above -->
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
-    </appender>
+
 
 
     <!-- For loggers in the these namespaces, log at all levels. -->
-    <!-- <logger name="pedestal" level="ALL" /> <logger name="hammock-cafe"
-        level="ALL" /> <logger name="user" level="ALL" /> -->
-    <!--<logger name="com.rsr" level="DEBUG"/>
-    <logger name="Menu" level="DEBUG"/>
-    <logger name="application" level="DEBUG"/>
-    <logger name="cardbind" level="DEBUG"/>-->
+    <!--<logger name="pedestal" level="ALL" />-->
+    <!--<logger name="hammock-cafe" level="ALL" />-->
+    <!--<logger name="user" level="ALL" />-->
+    <!--<logger name="com.rsr" level="DEBUG"/>-->
+    <!--<logger name="Menu" level="DEBUG"/>-->
+    <!--<logger name="application" level="DEBUG"/>-->
+    <!--<logger name="cardbind" level="DEBUG"/>-->
 
 
-    <!-- Enable FILE and STDOUT appenders for all log messages. By default, only log at level INFO and above. -->
+    <!-- 为所有日志消息启用文件和标准输出追加器。默认情况下，只记录级别为INFO及更高级别。 -->
     <root level="INFO">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
