@@ -94,12 +94,12 @@
 			<artifactId>jedis</artifactId>
 			<version>${jedis.version}</version>
 		</dependency>
-		<!-- api 地址 http://localhost:8080/swagger-ui.html-->
 		<!--spring boot redis support-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+		<!-- api 地址 http://localhost:8080/swagger-ui.html-->
 		<!-- swagger2依赖 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
