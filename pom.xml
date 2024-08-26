@@ -35,7 +35,7 @@
 		<mysql.version>8.0.28</mysql.version>
 		<mybatis.version>1.3.2</mybatis.version>
 		<fastjson.version>1.2.83</fastjson.version>
-		<swagger.version>2.6.1</swagger.version>
+		<swagger.version>2.10.0</swagger.version>
 		<jedis.version>2.9.0</jedis.version>
 		<activemq-core.version>5.7.0</activemq-core.version>
 		<javamelody.version>1.82.0</javamelody.version>
